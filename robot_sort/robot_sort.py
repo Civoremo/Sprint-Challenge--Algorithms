@@ -114,6 +114,7 @@ class SortingRobot:
         # bring back item to position with value None
         #
         # repeat those step until pickedUp item is at end of list
+        # O(n^2) because of nested while loop
 
         self.swap_item()
         self.set_light_on()
