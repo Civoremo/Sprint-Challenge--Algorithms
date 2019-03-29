@@ -116,29 +116,19 @@ class SortingRobot:
         # repeat those step until pickedUp item is at end of list
 
         self.swap_item()
-        # print(f'first item: {self._item}')
         self.set_light_on()
         while self.light_is_on():
             while self.can_move_right():
                 self.move_right()
-                # print(f'moved right: {self._position}')
-                if self.compare_item():
-                    # print(f'swapping item: {self._item}')
+                if self.compare_item() == True:
                     self.swap_item()
-                    # print(
-                    #     f'item is smaller than what we have, new item:{self._item}')
 
             while self.compare_item() is not None:
                 self.move_left()
-                # print(f'moving left: {self._position}')
                 if self.compare_item() == None:
-                    # print(f'old position item: {self._item}')
                     self.swap_item()
-                    # print(
-                    #     f'item is brought back to NONE position: {self._position} item: {self._item}')
 
             if self.can_move_right() is not False:
-                # print(f'item returned, move over again and search again')
                 self.move_right()
                 if self.can_move_right():
                     self.swap_item()
